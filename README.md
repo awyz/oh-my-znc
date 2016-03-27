@@ -145,7 +145,7 @@ of the others:
 for x in `ls | tee`; do                                                                                                                                  
 echo "IdentifyCmd PRIVMSG%20;Nickserv%20;identify%20;yournick%20;yourpass" > "./${x}/moddata/nickserv/.registry"
 echo "IdentifyCmd PRIVMSG%20;Nickserv%20;identify%20;yourpass" >> "./${x}/moddata/nickserv/.registry"
-echo "Password nsname%20;erratic" >> "./${x}/moddata/nickserv/.registry"
+echo "Password nsname%20;yournick" >> "./${x}/moddata/nickserv/.registry"
 done
 
 ```
