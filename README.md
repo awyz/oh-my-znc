@@ -1,4 +1,4 @@
-[Screenshot](raw/master/images/snapshot1.png)
+[Screenshot](https://github.com/cloudkitsch/oh-my-znc/raw/master/images/snapshot1.png)
 
 1. Check out the source and setup the dot dir:
 
