@@ -1,3 +1,5 @@
+[alt text](https://github.com/cloudkitsch/oh-my-znc/raw/master/images/snapshot1.png "not even shitting you")
+
 1. Check out the source and setup the dot dir:
 
 ```
