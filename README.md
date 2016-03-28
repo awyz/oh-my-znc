@@ -138,14 +138,30 @@ done
 ```
 sed -i 's/JoinDelay = 0/JoinDelay = 0\n                LoadModule = nickserv/g' znc.conf
 ```
-2.1 Sometimes modules are buggy, and you can't paste commands without crashing znc, so set one then copy the moddata to all 
+
+2.1 If you made the silly mistake of making all of your passwords for nickserv the same, try this:  
+```
+for x in `cat networks`; do                 
+    echo $x,$(dd if=/dev/urandom bs=1024 count=1 2> /dev/null | sha256sum | base64 | head -c 8 ; echo)
+done > newpasswords
+
+for x in `cat newpasswords | tee`; do
+    net=$(echo $x | tr ',' ' ' | awk '{print $1}' | tr -d '-' | tr -d '.')
+    pass=$(echo $x | tr ',' ' ' | awk '{print $2}')
+    echo "/msg -${net} nickserv set password ${pass}"
+done
+
+
+```
+
+2.2 Sometimes modules are buggy, and you can't paste commands without crashing znc, so set one then copy the moddata to all 
 of the others:
 
 ```
 for x in `ls | tee`; do                                                                                                                                  
-echo "IdentifyCmd PRIVMSG%20;Nickserv%20;identify%20;yournick%20;yourpass" > "./${x}/moddata/nickserv/.registry"
-echo "IdentifyCmd PRIVMSG%20;Nickserv%20;identify%20;yourpass" >> "./${x}/moddata/nickserv/.registry"
-echo "Password nsname%20;erratic" >> "./${x}/moddata/nickserv/.registry"
+    echo "IdentifyCmd PRIVMSG%20;Nickserv%20;identify%20;yournick%20;yourpass" > "./${x}/moddata/nickserv/.registry"
+    echo "IdentifyCmd PRIVMSG%20;Nickserv%20;identify%20;yourpass" >> "./${x}/moddata/nickserv/.registry"
+    echo "Password nsname%20;yournick" >> "./${x}/moddata/nickserv/.registry"
 done
 
 ```
