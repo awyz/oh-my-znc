@@ -1,4 +1,4 @@
-[alt text](https://github.com/cloudkitsch/oh-my-znc/raw/master/images/snapshot1.png "not even shitting you")
+![Screenshot](https://github.com/cloudkitsch/oh-my-znc/raw/master/images/snapshot1.png)
 
 1. Check out the source and setup the dot dir:
 
@@ -168,3 +168,5 @@ done
 
 ```
 
+## See also:
+https://gist.github.com/cloudkitsch/74cd686d9fe410a064fa
