@@ -36,7 +36,7 @@ protected:
 public:
 	MODCONSTRUCTOR(CIdentServerMod)
 	{
-		m_serverPort = 11300;
+		m_serverPort = 113;
 		m_identServer = NULL;
 		m_listenFailed = false;
 	}
